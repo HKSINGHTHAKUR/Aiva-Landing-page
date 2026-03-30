@@ -1,0 +1,5 @@
+{
+  "name": "AIVA Landing Page",
+  "description": "A clinical co-pilot landing page built with React, Tailwind CSS, Framer Motion, and GSAP.",
+  "requestFramePermissions": []
+}
