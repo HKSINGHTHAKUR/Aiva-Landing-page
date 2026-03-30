@@ -33,10 +33,10 @@ export default function App() {
         <main>
           <HeroSection />
           <ProblemSection />
+          <SystemArchitecture />
           <WhatAIVADoes />
           <ProviderExperience />
           <ClinicalSafety />
-          <SystemArchitecture />
           <HowItWorks />
           <FinalCTA />
         </main>
