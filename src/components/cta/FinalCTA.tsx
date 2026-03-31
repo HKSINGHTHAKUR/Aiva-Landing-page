@@ -1,13 +1,32 @@
 import { motion } from 'motion/react';
+import LightRays from '../ui/LightRays';
 
 export default function FinalCTA() {
   return (
-    <section id="waitlist" className="scroll-mt-24 w-full min-h-[80vh] bg-[#0B0B0C] relative z-10 flex items-center justify-center py-32">
+    <section id="waitlist" className="scroll-mt-24 w-full min-h-[80vh] bg-[#0B0B0C] relative z-10 flex items-center justify-center py-32 overflow-hidden">
       
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#3B82F6]/[0.02] to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#3B82F6]/[0.03] blur-[100px]" />
+      </div>
+
+      {/* Interactive Light Rays Background */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ffffff"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={3}
+          followMouse={true}
+          mouseInfluence={0.15}
+          noiseAmount={0}
+          distortion={0}
+          pulsating={false}
+          fadeDistance={1}
+          saturation={1}
+        />
       </div>
 
       {/* Watermark */}
@@ -36,31 +55,19 @@ export default function FinalCTA() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.8 }}
-          className="font-display text-[40px] md:text-[56px] lg:text-[64px] font-light text-white leading-[1.1] mb-8"
+          className="font-display text-[40px] md:text-[56px] lg:text-[64px] font-light text-white leading-[1.1] mb-12"
         >
           Bring continuity to<br/>
           <span className="text-[#A1A1AA]">clinical decision-making</span>
         </motion.h2>
-
-        {/* Description */}
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="font-body text-[16px] text-[#71717A] leading-[1.8] mb-12 max-w-[500px] mx-auto"
-        >
-          Early access available for pilot healthcare partners interested 
-          in evaluating continuous patient monitoring capabilities.
-        </motion.p>
 
         {/* CTA Form */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="mb-12"
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mb-14"
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-[480px] mx-auto">
             <input 
@@ -74,31 +81,15 @@ export default function FinalCTA() {
           </div>
         </motion.div>
 
-        {/* Trust indicators */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-6 mb-8"
-        >
-          {['HIPAA Compliant', 'No data collected via this form', 'Healthcare partners only'].map((text, i) => (
-            <span key={i} className="font-mono text-[10px] text-[#52525B] tracking-[0.1em] uppercase">
-              {text}
-            </span>
-          ))}
-        </motion.div>
-
-        {/* Disclaimer */}
+        {/* Combined Info */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="font-mono text-[10px] text-[#3F3F46] max-w-[500px] mx-auto leading-relaxed"
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="font-body text-[14px] text-[#71717A] max-w-[500px] mx-auto leading-relaxed"
         >
-          This form collects contact information only. No health data is requested or stored. 
-          Pilot participation subject to eligibility review and institutional requirements.
+          Early access available for eligible healthcare partners to evaluate secure, HIPAA-compliant continuous patient monitoring solutions.
         </motion.p>
 
       </div>

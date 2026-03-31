@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Activity, Clock, FileText, TrendingUp } from 'lucide-react';
+import BorderGlow from '../ui/BorderGlow';
 
 export default function WhatAIVADoes() {
   const features = [
@@ -57,28 +58,34 @@ export default function WhatAIVADoes() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group relative"
+              className="group relative block h-full"
             >
-              <div className="clinical-card rounded-2xl p-8 h-full transition-all duration-300 hover:border-[#3B82F6]/20 hover:translate-y-[-2px]">
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center mb-6 group-hover:bg-[#3B82F6]/15 transition-colors duration-300">
-                  <feature.icon className="w-5 h-5 text-[#3B82F6]" strokeWidth={1.5} />
-                </div>
+              <BorderGlow
+                className="h-full transition-transform duration-300 hover:translate-y-[-2px] text-left"
+                edgeSensitivity={30}
+                glowColor="217 91 60"
+                backgroundColor="#0B0B0C"
+                borderRadius={16}
+                glowRadius={30}
+                coneSpread={25}
+                animated={false}
+                colors={['#3B82F6', '#8B5CF6', '#ec4899']}
+              >
+                <div className="p-8 h-full flex flex-col items-start w-full">
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center mb-6 group-hover:bg-[#3B82F6]/15 transition-colors duration-300">
+                    <feature.icon className="w-5 h-5 text-[#3B82F6]" strokeWidth={1.5} />
+                  </div>
 
-                {/* Content */}
-                <h3 className="font-body text-[18px] font-medium text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="font-body text-[14px] text-[#71717A] leading-[1.7]">
-                  {feature.description}
-                </p>
-
-                {/* Subtle corner accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
-                  <div className="absolute top-0 right-0 w-[1px] h-8 bg-gradient-to-b from-[#3B82F6]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-0 right-0 w-8 h-[1px] bg-gradient-to-l from-[#3B82F6]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Content */}
+                  <h3 className="font-body text-[18px] font-medium text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="font-body text-[14px] text-[#71717A] leading-[1.7]">
+                    {feature.description}
+                  </p>
                 </div>
-              </div>
+              </BorderGlow>
             </motion.div>
           ))}
         </div>
